@@ -14,6 +14,7 @@ $ [sudo] npm install -g weibocon
 ```
 $ npm start
 ```
+默认将在本地3000端口开启服务。  
 测试使用mocha，执行
 ```
 $ npm test
