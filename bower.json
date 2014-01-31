@@ -1,0 +1,21 @@
+{
+  "name": "weibocon",
+  "version": "0.0.0",
+  "homepage": "https://github.com/tjwudi/weibocon",
+  "authors": [
+    "John Wu <webmaster@leapoahead.com>"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "directory": "static/components",
+  "dependencies": {
+    "angular": "~1.2.10"
+  }
+}
