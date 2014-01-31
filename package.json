@@ -1,0 +1,33 @@
+{
+  "name": "weibocon",
+  "version": "0.0.0",
+  "description": "Weibo Automated fans administration tool",
+  "main": "index.js",
+  "bin": {
+
+  },
+  "scripts": {
+    "test": "mocha -R spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:tjwudi/weibocon.git"
+  },
+  "keywords": [
+    "weibo",
+    "administration",
+    "fans"
+  ],
+  "author": "John Wu <webmaster@leapoahead.com> (https://github.com/tjwudi)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tjwudi/weibocon/issues"
+  },
+  "dependencies": {
+    
+  },
+  "devDependencies": {
+    
+  },
+  "homepage": "https://github.com/tjwudi/weibocon"
+}
