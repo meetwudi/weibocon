@@ -2,10 +2,53 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Untitled Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tjwudi/weibocon</title>
+    
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="stylesheets/ui-main.css">
+    <link rel="stylesheet" href="stylesheets/ui-custom.css">
+    
+    <!--[if lt IE 9]>
+      <script src="scripts/html5shiv.js"></script>
+      <script src="scripts/respond.min.js"></script>
+    <![endif]-->
 </head>
 <body>
-
+<div class="container">
+<article>
+    <h1>tjwudi/weibocon 控制台</h1>
+    <section>
+        <table class="table">
+            <caption>被监控用户列表</caption>
+            <tr>
+                <th>微博名</th>
+                <th>微博ID</th>
+                <th>上次搜集时间</th>
+            </tr>
+            <tr>
+                <td>Web开发-吴迪</td>
+                <td>1789785977</td>
+                <td>刚刚</td>
+            </tr>
+        </table>
+        <form role="form" class="form-horizontal">
+            <div class="form-group">
+                <label for="observe-user-id" class="col-sm-3 control-label">新增监控用户ID</label>
+                <div class="col-sm-7">
+                    <input class="form-control" type="text">
+                </div>
+                <div class="col-sm-2">
+                    <button type="submit" class="btn btn-default">Submit</button>
+                </div>
+            </div>
+        </form>
+    </section> <!-- 被监控用户列表 -->
+    <section>
+        
+    </section>
+</article>   
+</div>
 
 </body>
 </html>
