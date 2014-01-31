@@ -1,14 +1,11 @@
 #!/usr/bin/env node
 "use strict";
 
-var connect = require('connect'),
-    http = require('http');
+var express = require('express'),
+    router = require('../lib/router.js'),
+    config = require('../config.json');
 
-var app = connect()
-  .use(connect.logger('dev'))
-  .use(connect.static('public'))
-  .use(function(req, res){
-    res.end('hello world\n');
-  });
+var app = express();
 
-http.createServer(app).listen(3000);
+router.route(app);
+app.listen(config.SERVER_PORT);
