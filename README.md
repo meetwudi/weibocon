@@ -9,6 +9,8 @@
 安装weibocon，执行
 ```
 $ [sudo] npm install -g weibocon
+...
+$ bower install   #需要安装bower来安装前端所需库
 ```
 本工具采用web界面方式，启动服务器执行下面的命令
 ```
