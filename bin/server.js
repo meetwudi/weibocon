@@ -5,7 +5,8 @@ var express = require('express'),
     router = require('../lib/router.js'),
     config = require('../config.json'),
     weibo = require('weibo'),
-    mongoose = require('mongoose');
+    mongoose = require('mongoose'),
+    g = require('../lib/global');
 
 var app = express(),
     db = null;
@@ -17,10 +18,10 @@ weibo.init('weibo', config.APP_KEY, config.APP_SECRET);
 mongoose.connect('mongodb://localhost/weibocon_db');
 db = mongoose.connection;
 db.on('error', function() {
-  throw new Error('Cannot connect to database');
+    throw new Error('Cannot connect to database');
 });
 db.once('open', function() {
-  console.info('Database connection established');
+    console.info('Database connection established');
 });
 
 // Set up server
@@ -36,13 +37,18 @@ app.use(weibo.oauth({
     logoutPath: '/logout',
     blogtypeField: 'type',
     afterLogin: function (req, res, callback) {
-      console.log(req.session.oauthUser.screen_name, 'login success');
-      process.nextTick(callback);
+        console.log(req.session.oauthUser.screen_name, ' 授权成功');
+        g.set('oauthUser', req.session.oauthUser);
+        process.nextTick(callback);
     },
     beforeLogout: function (req, res, callback) {
-      console.log(req.session.oauthUser.screen_name, 'loging out');
-      process.nextTick(callback);
+        console.log(req.session.oauthUser.screen_name, ' 授权取消');
+        g.unset('oauthUser');
+        process.nextTick(callback);
     }
 }));
 router.route(app);
 app.listen(config.SERVER_PORT);
+
+// run robot
+require('../lib/robots');

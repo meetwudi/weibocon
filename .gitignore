@@ -3,3 +3,4 @@ config.json
 npm-debug.log
 static/stylesheets/less
 static/components
+log.log

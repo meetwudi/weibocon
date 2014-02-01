@@ -15,53 +15,24 @@
     <![endif]-->
 </head>
 <body>
-<% if (!! oauthUser) { %>
-<%= oauthUser.name + " 已登录！" %> <a href="/logout">登出</a>
-<% } else { %>
-<a href="/login?type=weibo">授权</a>
-<% } %> 
+
 
 <div class="container">
-
-<h1>tjwudi/weibocon 控制台</h1>
-<h4>信息表</h4>
-<section>
-    <table class="table">
-        <caption>待关注用户列表</caption>
-        <tr>
-            <th>微博名</th>
-            <th>微博ID</th>
-            <th>加入时间</th>
-        </tr>
-        <tr>
-            <td>Test</td>
-            <td>112332123</td>
-            <td>2分钟前</td>
-        </tr>
-    </table>
-</section> <!-- 待关注用户列表 -->
-   
-<section>
-    <table class="table">
-        <caption>待取消用户列表</caption>
-        <tr>
-            <th>微博名</th>
-            <th>微博ID</th>
-            <th>关注时间</th>
-        </tr>
-        <tr>
-            <td>Test</td>
-            <td>112332123</td>
-            <td>4分钟前</td>
-        </tr>
-    </table>
-</section> <!-- 待取消用户列表 -->
-
-<section>
-<h4>任务状态</h4>
-<div class="alert alert-success">正在执行任务……</div>
-</section> <!-- 任务状态 -->
-
+    <div class="row">
+        <h1>tjwudi/weibocon 监控板</h1>
+    </div>
+    <div class="row">
+        <% if (!! oauthUser) { %>
+        @<%= oauthUser.name + " 已登录！" %> <a href="/logout" class="btn btn-primary">登出</a>
+        <% } else { %>
+        <a href="/login?type=weibo" class="btn btn-primary">授权</a>
+        <% } %> 
+    </div>
+    <div class="row">
+        <ul id="status-board">
+            <!--      Status List      -->
+        </ul>
+    </div>
 </div>
 
 
