@@ -13,16 +13,25 @@ weibo.init('weibo', config.APP_KEY, config.APP_SECRET);
 
 
 // Set up server
-app.use(express.logger());
-app.use(express.bodyParser());
+//app.use(express.logger());
 app.set('view engine', 'ejs');
 app.use(express.static(__dirname + '/../static'));
-app.use(express.cookieParser('asdasdu12h93812j3oiadas'));
-app.use(express.cookieSession({secret:"dasdqwe1231"}));
+app.use(express.cookieParser());
+app.use(express.session({secret : 'asxcfrgth'}));
+app.use(app.router);
+app.use(express.bodyParser());
 app.use(weibo.oauth({
     loginPath: '/login',
     logoutPath: '/logout',
-    blogtypeField: 'type'
+    blogtypeField: 'type',
+    afterLogin: function (req, res, callback) {
+      console.log(req.session.oauthUser.screen_name, 'login success');
+      process.nextTick(callback);
+    },
+    beforeLogout: function (req, res, callback) {
+      console.log(req.session.oauthUser.screen_name, 'loging out');
+      process.nextTick(callback);
+    }
 }));
 router.route(app);
 app.listen(config.SERVER_PORT);

@@ -29,7 +29,8 @@
     "mongoose": "3.8.6",
     "async": "*",
     "weibo": "*",
-    "ejs": "*"
+    "ejs": "*",
+    "mongoose": "*"
   },
   "devDependencies": {
     "mocha": "*",
