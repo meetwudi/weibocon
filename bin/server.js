@@ -4,13 +4,24 @@
 var express = require('express'),
     router = require('../lib/router.js'),
     config = require('../config.json'),
-    weibo = require('weibo');
+    weibo = require('weibo'),
+    mongoose = require('mongoose');
 
-var app = express();
+var app = express(),
+    db = null;
 
 // Set up weibo
 weibo.init('weibo', config.APP_KEY, config.APP_SECRET);
 
+// Set up database connection
+mongoose.connect('mongodb://localhost/weibocon_db');
+db = mongoose.connection;
+db.on('error', function() {
+  throw new Error('Cannot connect to database');
+});
+db.once('open', function() {
+  console.info('Database connection established');
+});
 
 // Set up server
 //app.use(express.logger());
