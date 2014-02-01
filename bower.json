@@ -16,6 +16,5 @@
   ],
   "directory": "static/components",
   "dependencies": {
-    "angular": "~1.2.10"
   }
 }
