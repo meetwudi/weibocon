@@ -30,7 +30,8 @@
     "async": "*",
     "weibo": "*",
     "ejs": "*",
-    "mongoose": "*"
+    "mongoose": "*",
+    "underscore": "*"
   },
   "devDependencies": {
     "mocha": "*",

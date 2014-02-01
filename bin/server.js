@@ -25,12 +25,12 @@ db.once('open', function() {
 
 // Set up server
 //app.use(express.logger());
+app.use(express.bodyParser());
 app.set('view engine', 'ejs');
 app.use(express.static(__dirname + '/../static'));
 app.use(express.cookieParser());
 app.use(express.session({secret : 'asxcfrgth'}));
 app.use(app.router);
-app.use(express.bodyParser());
 app.use(weibo.oauth({
     loginPath: '/login',
     logoutPath: '/logout',
